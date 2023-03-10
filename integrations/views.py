@@ -98,5 +98,10 @@ class PensionStatus(views.APIView):
             "bank_name" : pension.bank_name,
             "PPO_number" : pension.PPO,
             "bank_account_number" : pension.bank_account_number,
+            "address" : pension.pensioner_address,
+            "amount" : pension.pension_amount,
+            "bak_account_type" : pension.bank_account_type,
+            "distribution_date" : pension.created_at
         }
         return Response(resp, status=status.HTTP_200_OK)
+    

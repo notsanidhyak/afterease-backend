@@ -108,7 +108,7 @@ class DeathCertificate(models.Model):
                     pensioner.save()
                 except Pensioner.DoesNotExist:
                     pass
-                super().save(*args, **kwargs)
+            super().save(*args, **kwargs)
             
         
 class PANCard(models.Model):
