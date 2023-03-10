@@ -37,7 +37,7 @@ class LoginView(APIView):
         print(otp)
         
         #uncomment below line to send OTP via twilio: it is paid after certain free credits
-        # send_otp(phone_number, otp)
+        send_otp(phone_number, otp)
         data = {'message': 'OTP sent successfully', 'phone_number': phone_number}
         return Response(data, status=status.HTTP_200_OK)
 
