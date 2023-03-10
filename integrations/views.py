@@ -76,7 +76,7 @@ class InformantDeathCertificateList(views.APIView):
     def get(self, request):
         informant = Informant.objects.get(phone_number=self.request.user.username)
                 # Get the queryset of death certificates associated with the informant
-        death_certificates = informant.death_certificates.all()
+        death_certificates = informant.death_certificates.filter(status='Approved')
 
         # Serialize the queryset using the DeathCertificateSerializer
         serializer = DeathCertificateSerializer(death_certificates, many=True)
@@ -100,7 +100,7 @@ class PensionStatus(views.APIView):
             "bank_account_number" : pension.bank_account_number,
             "address" : pension.pensioner_address,
             "amount" : pension.pension_amount,
-            "bak_account_type" : pension.bank_account_type,
+            "bank_account_type" : pension.bank_account_type,
             "distribution_date" : pension.created_at
         }
         return Response(resp, status=status.HTTP_200_OK)
