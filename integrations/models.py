@@ -1,5 +1,6 @@
 from django.db import models
 from django.db import transaction
+import random
 # Create your models here.
 
 class AadhaarCard(models.Model):
@@ -55,7 +56,7 @@ class DeathCertificate(models.Model):
     informant_adhaar = models.CharField(max_length=12, unique= False, null=True, blank=False)
     registration_date = models.DateTimeField(auto_now_add=True)
     registration_place = models.CharField(max_length=100)
-    registration_number = models.CharField(max_length=20)
+    registration_number = models.CharField(max_length=20, null=True, blank=True)
     aadhaar_number = models.CharField(max_length=12, unique=True, null=True, blank=False)
     STATUS_CHOICES = [
         ('Pending', 'Pending'),
@@ -67,6 +68,13 @@ class DeathCertificate(models.Model):
         return (str(self.name) + str(self.registration_number))
     
     def save(self, *args, **kwargs):
+        if not self.registration_number:
+            while True:
+                new_no = random.randint(1000000, 9999999)
+                if not DeathCertificate.objects.filter(registration_number=new_no).exists():
+                    self.registration_number = new_no
+                    break
+            
         if not self.pk:
             informant = None
             informant_death_certificate = None
@@ -153,6 +161,7 @@ class Pensioner(models.Model):
 
     def __str__(self):
         return (str(self.pensioner_name)+str(self.PPO))
+    
     
 class DrivingLicense(models.Model):
     first_name = models.CharField(max_length=255)
