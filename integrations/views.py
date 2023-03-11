@@ -47,7 +47,7 @@ class DissolveDocuments(views.APIView):
             resp.append("adhaar_card")
             AadhaarCard.objects.get(aadhaar_number=adhaar_no).update(is_active=False)
             
-        if 'voterid' in doc_list:
+        if 'voter_id' in doc_list:
             try:
                 VoterID.objects.get(adhaar_number=adhaar_no).update(is_active=False)
                 resp.append("voterid")
