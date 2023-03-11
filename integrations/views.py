@@ -43,8 +43,8 @@ class DissolveDocuments(views.APIView):
         adhaar_no = DeathCertificate.objects.get(registration_number=reg_no).aadhaar_number
         resp = []
         
-        if 'aadhaar_card' in doc_list:
-            resp.append("aadhaar_card")
+        if 'adhaar_card' in doc_list:
+            resp.append("adhaar_card")
             AadhaarCard.objects.get(aadhaar_number=adhaar_no).update(is_active=False)
             
         if 'voterid' in doc_list:
