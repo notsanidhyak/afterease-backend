@@ -27,12 +27,12 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [ "http://localhost:3000", "https://after-ease.netlify.app/","http://localhost:8000", "https://smart-identity-platform.onrender.com/" ]
+ALLOWED_HOSTS = [ "http://localhost:3000", "https://after-ease.netlify.app/","http://localhost:8000", "https://after-ease.onrender.com/" ]
 
-CORS_ALLOWED_ORIGINS = [ 'http://localhost:3000', "https://after-ease.netlify.app/"]
+CORS_ALLOWED_ORIGINS = [ 'http://localhost:3000', "https://after-ease.netlify.app/", "https://after-ease.onrender.com"]
 
 CORS_ORIGIN_WHITELIST = [
-    "http://localhost:3000", "https://after-ease.netlify.app/"
+    "http://localhost:3000", "https://after-ease.netlify.app/", "https://after-ease.onrender.com"
 ]
 
 
