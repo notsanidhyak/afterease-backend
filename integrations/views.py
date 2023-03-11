@@ -9,8 +9,7 @@ class DissolveDocuments(views.APIView):
     permission_classes = [permissions.IsAuthenticated]
     
     def get(self,request):
-        data = request.data
-        reg_no = data.get('death_registration_number')
+        reg_no = request.GET.get('death_registration_number')
         adhaar_no = DeathCertificate.objects.get(registration_number=reg_no).aadhaar_number
         
         resp = {
@@ -88,8 +87,7 @@ class PensionStatus(views.APIView):
     permission_classes = [permissions.IsAuthenticated]
     
     def get(self, request):
-        data = request.data
-        reg_no = data.get('death_registration_number')
+        reg_no = request.GET.get('death_registration_number')
         aadhaar_no = DeathCertificate.objects.get(registration_number=reg_no).aadhaar_number
         pension = Pensioner.objects.get(adhaar_number=aadhaar_no)
         resp = {
