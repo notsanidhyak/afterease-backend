@@ -1,13 +1,15 @@
 <h1 align="center">After Ease</h1>
 
-## Development 🔧
 APIs avaiable at- https://documenter.getpostman.com/view/19649785/2s93JqRjeF
 
 [Idea Submission](https://docs.google.com/presentation/d/1kOnasO5t7KhjDZZ77dV6p12BacTB1_Sg/edit#slide=id.p1)
-## Setup
 
 website Live at- https://after-ease.netlify.app/  
 demo video- https://youtu.be/8rsyRUIYIzg
+
+## Development 🔧
+
+## Setup
 
 PS- We are using a free tier of twilio to send APIs and the dummy database of adhaar, CPAO and other documents and it sends to only twilio verified phone number for a particular account. So you can contact mugdhasharma0327@gmail.com if you wish to take a demo of website.
 
